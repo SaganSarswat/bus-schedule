@@ -1,0 +1,100 @@
+{
+  "busStops": {
+    "bhagta": { "name": "Bhagta Bhai Bus Stand" },
+    "kothaguru": { "name": "Kotha Guru Ka" },
+    "dialpura": { "name": "Dialpura Mirza" },
+    "kalmalka": { "name": "Kalyan Malka" },
+    "kalsukha": { "name": "Kalyan Sukha" },
+    "bajjjoana": { "name": "Bajjjoana" },
+    "bhainimari": { "name": "Bhaini Mari" },
+    "mehraj": { "name": "Mehraj" },
+    "rampura": { "name": "Rampura Phul" },
+    "nathpura": { "name": "Nathpura" },
+    "nathana": { "name": "Nathana" },
+    "poohla": { "name": "Poohla" },
+    "bhuchokalan": { "name": "Bhucho Kalan" },
+    "bhuchomandi": { "name": "Bhucho Mandi" },
+    "bhuchokhurd": { "name": "Bhucho Khurd" },
+    "bathinda": { "name": "Bathinda Bus Stand" }
+  },
+
+  "routes": {
+    "BB-RP": {
+      "name": "Bhagta Bhai – Rampura Phul",
+      "stopIds": [
+        "bhagta",
+        "kothaguru",
+        "dialpura",
+        "kalmalka",
+        "kalsukha",
+        "bajjjoana",
+        "bhainimari",
+        "mehraj",
+        "rampura"
+      ]
+    },
+    "BB-BTI": {
+      "name": "Bhagta Bhai – Bathinda",
+      "stopIds": [
+        "bhagta",
+        "kothaguru",
+        "dialpura",
+        "kalmalka",
+        "kalsukha",
+        "bajjjoana",
+        "nathpura",
+        "nathana",
+        "poohla",
+        "bhuchokalan",
+        "bhuchomandi",
+        "bhuchokhurd",
+        "bathinda"
+      ]
+    }
+  },
+
+  "buses": {
+    "rp-1": { "routeId": "BB-RP", "operator": "Maan", "departureTime": "08:35" },
+    "rp-2": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "09:30" },
+    "rp-3": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "10:20" },
+    "rp-4": { "routeId": "BB-RP", "operator": "Maan", "departureTime": "12:30" },
+    "rp-5": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "13:15" },
+    "rp-6": { "routeId": "BB-RP", "operator": "Gill", "departureTime": "13:50" },
+    "rp-7": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "14:15" },
+    "rp-8": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "14:50" },
+    "rp-9": { "routeId": "BB-RP", "operator": "Maan", "departureTime": "15:30" },
+    "rp-10": { "routeId": "BB-RP", "operator": "Maan", "departureTime": "16:30" },
+    "rp-11": { "routeId": "BB-RP", "operator": "Sainik", "departureTime": "17:30" },
+    "rp-12": { "routeId": "BB-RP", "operator": "Bhullar", "departureTime": "18:12" },
+
+    "bt-1": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "06:00" },
+    "bt-2": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "06:30" },
+    "bt-3": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "06:48" },
+    "bt-4": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "07:20" },
+    "bt-5": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "07:24" },
+    "bt-6": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "07:48" },
+    "bt-7": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "08:00" },
+    "bt-8": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "08:33" },
+    "bt-9": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "10:34" },
+    "bt-10": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "11:00" },
+    "bt-11": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "11:28" },
+    "bt-12": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "12:00" },
+    "bt-13": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "13:03" },
+    "bt-14": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "13:23" },
+    "bt-15": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "13:37" },
+    "bt-16": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "14:22" },
+    "bt-17": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "14:37" },
+    "bt-18": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "15:20" },
+    "bt-19": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "15:25" },
+    "bt-20": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "15:40" },
+    "bt-21": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "16:57" },
+    "bt-22": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "17:40" },
+    "bt-23": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "17:55" },
+    "bt-24": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "18:35" },
+    "bt-25": { "routeId": "BB-BTI", "operator": "Dashmesh", "departureTime": "18:10" },
+    "bt-26": { "routeId": "BB-BTI", "operator": "GNT", "departureTime": "16:20" },
+    "bt-27": { "routeId": "BB-BTI", "operator": "Jalal", "departureTime": "16:30" },
+    "bt-28": { "routeId": "BB-BTI", "operator": "GNT", "departureTime": "17:15" },
+    "bt-29": { "routeId": "BB-BTI", "operator": "Dashmesh", "departureTime": "17:30" }
+  }
+}
