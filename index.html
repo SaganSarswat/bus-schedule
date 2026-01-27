@@ -173,26 +173,40 @@ aru
 <script>
 let data = {};
 
-// Load JSON
-fetch("laari-data.json")
+// Only these can be starting points (current location)
+const STARTING_STOPS = ["bhagta", "rampura"];
+
+// Load JSON (USE ONLINE URL HERE)
+fetch("https://your-site.com/laari-data.json")
   .then(res => res.json())
   .then(json => {
     data = json;
     populateStops();
   })
-  .catch(err => console.error("Error loading JSON:", err));
+  .catch(err => {
+    console.error("Error loading JSON:", err);
+    document.getElementById("results").innerHTML =
+      "Failed to load bus data. Check internet.";
+  });
 
 function populateStops() {
   const from = document.getElementById("from");
   const to = document.getElementById("to");
 
-  from.innerHTML = `<option value="">Select location</option>`;
+  from.innerHTML = `<option value="">Select starting point</option>`;
   to.innerHTML = `<option value="">Select destination</option>`;
 
-  // Loop through busStops object
+  // FROM → only starting stops
+  STARTING_STOPS.forEach(stopId => {
+    const stop = data.busStops[stopId];
+    if (stop) {
+      from.innerHTML += `<option value="${stopId}">${stop.name}</option>`;
+    }
+  });
+
+  // TO → all stops
   for (const stopId in data.busStops) {
     const stop = data.busStops[stopId];
-    from.innerHTML += `<option value="${stopId}">${stop.name}</option>`;
     to.innerHTML += `<option value="${stopId}">${stop.name}</option>`;
   }
 }
@@ -205,31 +219,37 @@ function findBuses() {
   results.innerHTML = "";
 
   if (!from || !to) {
-    results.innerHTML = "Please select both locations.";
+    results.innerHTML = "Please select both starting point and destination.";
     return;
   }
 
-  // Convert routes object to array
-  const validRoutes = Object.entries(data.routes)
-    .filter(([routeId, route]) => 
+  if (from === to) {
+    results.innerHTML = "Starting point and destination cannot be the same.";
+    return;
+  }
+
+  // Find valid routes (direction-aware)
+  const validRoutes = Object.entries(data.routes).filter(
+    ([_, route]) =>
       route.stopIds.includes(from) &&
       route.stopIds.includes(to) &&
       route.stopIds.indexOf(from) < route.stopIds.indexOf(to)
-    );
+  );
 
   if (validRoutes.length === 0) {
-    results.innerHTML = "No route found.";
+    results.innerHTML = "No bus available for this route.";
     return;
   }
 
   validRoutes.forEach(([routeId, route]) => {
-    // Convert buses object to array
-    const busesOnRoute = Object.values(data.buses).filter(bus => bus.routeId === routeId);
+    const busesOnRoute = Object.values(data.buses)
+      .filter(bus => bus.routeId === routeId)
+      .sort((a, b) => a.departureTime.localeCompare(b.departureTime));
 
     busesOnRoute.forEach(bus => {
       results.innerHTML += `
         <div class="result">
-          <img src="bus-stop (1).png">
+          <img src="https://your-site.com/bus-stop.png" alt="Bus">
           <div>
             <strong>${bus.departureTime}</strong><br>
             ${bus.operator} • ${route.name}
@@ -240,6 +260,5 @@ function findBuses() {
   });
 }
 </script>
-
 </body>
 </html>
