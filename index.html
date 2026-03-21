@@ -171,74 +171,116 @@ aru
 <div class="results" id="results"></div>
 
 <script>
-let data = {};  
-  
-// Load JSON  
-fetch("laari-data.json")  
-  .then(res => res.json())  
-  .then(json => {  
-    data = json;  
-    populateStops();  
-  })  
-  .catch(err => console.error("Error loading JSON:", err));  
-  
-function populateStops() {  
-  const from = document.getElementById("from");  
-  const to = document.getElementById("to");  
-  
-  from.innerHTML = `<option value="">Select location</option>`;  
-  to.innerHTML = `<option value="">Select destination</option>`;  
-  
-  // Loop through busStops object  
-  for (const stopId in data.busStops) {  
-    const stop = data.busStops[stopId];  
-    from.innerHTML += `<option value="${stopId}">${stop.name}</option>`;  
-    to.innerHTML += `<option value="${stopId}">${stop.name}</option>`;  
-  }  
-}  
-  
-function findBuses() {  
-  const from = document.getElementById("from").value;  
-  const to = document.getElementById("to").value;  
-  const results = document.getElementById("results");  
-  
-  results.innerHTML = "";  
-  
-  if (!from || !to) {  
-    results.innerHTML = "Please select both locations.";  
-    return;  
-  }  
-  
-  // Convert routes object to array  
-  const validRoutes = Object.entries(data.routes)  
-    .filter(([routeId, route]) =>   
-      route.stopIds.includes(from) &&  
-      route.stopIds.includes(to) &&  
-      route.stopIds.indexOf(from) < route.stopIds.indexOf(to)  
-    );  
-  
-  if (validRoutes.length === 0) {  
-    results.innerHTML = "No route found.";  
-    return;  
-  }  
-  
-  validRoutes.forEach(([routeId, route]) => {  
-    // Convert buses object to array  
-    const busesOnRoute = Object.values(data.buses).filter(bus => bus.routeId === routeId);  
-  
-    busesOnRoute.forEach(bus => {  
-      results.innerHTML += `  
-        <div class="result">  
-          <img src="bus-stop (1).png">  
-          <div>  
-            <strong>${bus.departureTime}</strong><br>  
-            ${bus.operator} • ${route.name}  
-          </div>  
-        </div>  
-      `;  
-    });  
-  });  
-}  
+let data = {};
+
+// Load JSON
+fetch("laari-data.json")
+  .then(res => res.json())
+  .then(json => {
+    data = json;
+    populateStops();
+  })
+  .catch(err => console.error("Error loading JSON:", err));
+
+function populateStops() {
+  const from = document.getElementById("from");
+  const to = document.getElementById("to");
+
+  from.innerHTML = `<option value="">Select location</option>`;
+  to.innerHTML = `<option value="">Select destination</option>`;
+
+  for (const stopId in data.busStops) {
+    const stop = data.busStops[stopId];
+    from.innerHTML += `<option value="${stopId}">${stop.name}</option>`;
+    to.innerHTML += `<option value="${stopId}">${stop.name}</option>`;
+  }
+}
+
+function timeToMinutes(timeStr) {
+  const [time, modifier] = timeStr.trim().split(" ");
+  let [hours, minutes] = time.split(":").map(Number);
+
+  if (modifier === "PM" && hours !== 12) hours += 12;
+  if (modifier === "AM" && hours === 12) hours = 0;
+
+  return hours * 60 + minutes;
+}
+
+function getCurrentMinutes() {
+  const now = new Date();
+  return now.getHours() * 60 + now.getMinutes();
+}
+
+function findBuses() {
+  const from = document.getElementById("from").value;
+  const to = document.getElementById("to").value;
+  const fullDay = document.getElementById("fullDay").checked;
+  const results = document.getElementById("results");
+
+  results.innerHTML = "";
+
+  if (!from || !to) {
+    results.innerHTML = `<div class="result">Please select both locations.</div>`;
+    return;
+  }
+
+  if (from === to) {
+    results.innerHTML = `<div class="result">Current location and destination cannot be the same.</div>`;
+    return;
+  }
+
+  const validRoutes = Object.entries(data.routes).filter(([routeId, route]) =>
+    route.stopIds.includes(from) &&
+    route.stopIds.includes(to) &&
+    route.stopIds.indexOf(from) < route.stopIds.indexOf(to)
+  );
+
+  if (validRoutes.length === 0) {
+    results.innerHTML = `<div class="result">No route found.</div>`;
+    return;
+  }
+
+  const currentMinutes = getCurrentMinutes();
+  let matchedBuses = [];
+
+  validRoutes.forEach(([routeId, route]) => {
+    const busesOnRoute = Object.values(data.buses).filter(bus => bus.routeId === routeId);
+
+    busesOnRoute.forEach(bus => {
+      const busMinutes = timeToMinutes(bus.departureTime);
+
+      if (fullDay || busMinutes >= currentMinutes) {
+        matchedBuses.push({
+          departureTime: bus.departureTime,
+          operator: bus.operator,
+          routeName: route.name,
+          timeValue: busMinutes
+        });
+      }
+    });
+  });
+
+  matchedBuses.sort((a, b) => a.timeValue - b.timeValue);
+
+  if (matchedBuses.length === 0) {
+    results.innerHTML = fullDay
+      ? `<div class="result">No buses found for this route.</div>`
+      : `<div class="result">No more buses available today. Tick "Show full day schedule" to see all buses.</div>`;
+    return;
+  }
+
+  matchedBuses.forEach(bus => {
+    results.innerHTML += `
+      <div class="result">
+        <img src="bus-stop (1).png" alt="Bus icon">
+        <div>
+          <strong>${bus.departureTime}</strong><br>
+          ${bus.operator} • ${bus.routeName}
+        </div>
+      </div>
+    `;
+  });
+}
 </script>
 </body>
 </html>
