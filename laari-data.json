@@ -66,7 +66,7 @@
     "rp-10": { "routeId": "BB-RP", "operator": "Maan", "departureTime": "16:30" },
     "rp-11": { "routeId": "BB-RP", "operator": "Sainik", "departureTime": "17:30" },
     "rp-12": { "routeId": "BB-RP", "operator": "Bhullar", "departureTime": "18:12" },
-
+    "rp-13": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "12:15" },
     "bt-1": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "06:00" },
     "bt-2": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "06:30" },
     "bt-3": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "06:48" },
@@ -96,6 +96,5 @@
     "bt-27": { "routeId": "BB-BTI", "operator": "Jalal", "departureTime": "16:30" },
     "bt-28": { "routeId": "BB-BTI", "operator": "GNT", "departureTime": "17:15" },
     "bt-29": { "routeId": "BB-BTI", "operator": "Dashmesh", "departureTime": "17:30" }
-  },
-    "rp-13": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "12:15" }
+  }
 }
