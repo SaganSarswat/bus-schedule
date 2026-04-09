@@ -97,5 +97,5 @@
     "bt-28": { "routeId": "BB-BTI", "operator": "GNT", "departureTime": "17:15" },
     "bt-29": { "routeId": "BB-BTI", "operator": "Dashmesh", "departureTime": "17:30" }
   },
-    "rp-30": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "12:15" },
+    "rp-13": { "routeId": "BB-RP", "operator": "Saink", "departureTime": "12:15" },
 }
