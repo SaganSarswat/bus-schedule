@@ -91,8 +91,8 @@
     "rb-4": { "routeId": "RP-BB", "operator": "Gill", "departureTime": "12:30" },
     "rb-5": { "routeId": "RP-BB", "operator": "Saink", "departureTime": "13:30" },
     "rb-6": { "routeId": "RP-BB", "operator": "Maan", "departureTime": "15:00" },
-    "rb-7": { "routeId": "RP-BB", "operator": "Sainik", "departureTime": "16:00" },
-    "rb-8": { "routeId": "RP-BB", "operator": "Bhullar", "departureTime": "17:00" },
+    "rb-7": { "routeId": "RP-BB", "operator": "Sainik", "departureTime": "17:30" },
+    "rb-8": { "routeId": "RP-BB", "operator": "Bhullar", "departureTime": "18:20" },
 
     "bt-1": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "06:00" },
     "bt-2": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "06:30" },
