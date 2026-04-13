@@ -4,234 +4,165 @@
 <meta charset="UTF-8">
 <title>Laari – Route Planner</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google tag (gtag.js) -->
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0885C07SW"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-M0885C07SW');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-M0885C07SW');
 </script>
+
 <script>
-  function showAd() {
-    if (window.ReactNativeWebView) {
-      window.ReactNativeWebView.postMessage("showAd");
-    }
+function showAd() {
+  if (window.ReactNativeWebView) {
+    window.ReactNativeWebView.postMessage("showAd");
+  }
 }
 </script>
+
 <style>
-  body {
-    margin: 35px 0px 30px 0px;
-    font-family: Arial, sans-serif;
-    background: #eef6fb;
-  }
+body {
+  margin: 35px 0px 30px 0px;
+  font-family: Arial;
+  background: #eef6fb;
+}
 
-  /* Header */
-  .topbar {
-    display: flex;
-aru
-    align-items: center;
-    padding: 14px;
-    background: #ffffff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  }
-
-  .logo {
-    background: #4aa0e0;
-    border-radius: 10px;
-    padding: 6px;
-    margin-right: 8px;
-  }
-
-  .title {
-    font-size: 30px;
-    font-weight: bold;
-    color: #4aa0e0;
-  }
-
-  /* Card */
-  .card {
-    background: white;
-    margin: 15px;
-    padding: 16px;
-    border-radius: 14px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  }
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .card-header span {
-    font-size: 22px;
-    margin-right: 8px;
-  }
-
-  .subtitle {
-    color: #6b8ca6;
-    font-size: 14px;
-    margin-bottom: 14px;
-  }
-
-  label {
-    font-size: 14px;
-    font-weight: bold;
-    display: block;
-    margin-top: 12px;
-    margin-bottom: 5px;
-  }
-
-  select {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: none;
-    background: #eaf3ff;
-    font-size: 15px;
-  }
-
-  .checkbox-box {
-    margin-top: 14px;
-    padding: 14px;
-    border-radius: 12px;
-    border: 1px solid #cfe3f3;
-    display: flex;
-    gap: 10px;
-  }
-
-  .btn {
-    margin-top: 16px;
-    width: 100%;
-    padding: 14px;
-    background: #4aa0e0;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  /* Results */
-  .results {
-    margin: 15px;
-  }
-
-  .result {
-    background: white;
-    padding: 12px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  }
-
-  .result img {
-    width: 32px;
-    height: 32px;
-  }
-.message {
-  height: 30px;          /* or 100vh */
+.topbar {
   display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
+  align-items: center;
+  padding: 14px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  background: #4aa0e0;
+  border-radius: 10px;
+  padding: 6px;
+  margin-right: 8px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #4aa0e0;
+}
+
+.card {
+  background: white;
+  margin: 15px;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 12px;
+  display: block;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #eaf3ff;
+}
+
+.btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 14px;
+  background: #4aa0e0;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.result {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 10px;
+  display: flex;
+  gap: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Header -->
 <div class="topbar">
   <div class="logo">
-    <img src="bus-stop (1).png" width="32" height="32">
+    <img src="bus-stop (1).png" width="32">
   </div>
   <div class="title">Laari</div>
 </div>
-<div class="message"> I believe on Karm</div>
-<!-- Planner -->
+
 <div class="card">
-  <div class="card-header">
-    <span>🔀</span>
-    <h2>Route Planner</h2>
-  </div>
 
-  <div class="subtitle">
-    Find bus timings for your journey.
-  </div>
+<label>From</label>
+<select id="from"></select>
 
-  <label>Current Location</label>
-  <select id="from"></select>
+<label>To</label>
+<select id="to"></select>
 
-  <label>Destination</label>
-  <select id="to"></select>
+<label>
+<input type="checkbox" id="fullDay"> Show full day
+</label>
 
-  <div class="checkbox-box">
-    <input type="checkbox" id="fullDay">
-    <div>
-      <strong>Show full day schedule</strong>
-      <small>Show all buses</small>
-    </div>
-  </div>
+<button class="btn" onclick="handleClick()">Find Bus</button>
 
-  <button class="btn" onclick="handleClick()">🔍 Find Departures</button>
 </div>
 
-<!-- Results -->
-<div class="results" id="results"></div>
-<script>
-function handleClick() {
-  findBuses()();   // your existing function
-  showAd();       // trigger ad
-}
-</script>
+<div id="results"></div>
+
 <script>
 let data = {};
 
-// Load JSON
 fetch("laari-data.json")
-  .then(res => res.json())
-  .then(json => {
-    data = json;
-    populateStops();
-  })
-  .catch(err => console.error("Error loading JSON:", err));
+.then(res => res.json())
+.then(json => {
+  data = json;
+  populateStops();
+});
 
 function populateStops() {
   const from = document.getElementById("from");
   const to = document.getElementById("to");
 
-  from.innerHTML = `<option value="">Select location</option>`;
-  to.innerHTML = `<option value="">Select destination</option>`;
+  from.innerHTML = `<option value="">Select</option>`;
+  to.innerHTML = `<option value="">Select</option>`;
 
-  for (const stopId in data.busStops) {
-    const stop = data.busStops[stopId];
-    from.innerHTML += `<option value="${stopId}">${stop.name}</option>`;
-    to.innerHTML += `<option value="${stopId}">${stop.name}</option>`;
+  for (const id in data.busStops) {
+    from.innerHTML += `<option value="${id}">${data.busStops[id].name}</option>`;
+    to.innerHTML += `<option value="${id}">${data.busStops[id].name}</option>`;
   }
 }
 
-function timeToMinutes(timeStr) {
-  const [time, modifier] = timeStr.trim().split(" ");
-  let [hours, minutes] = time.split(":").map(Number);
-
-  if (modifier === "PM" && hours !== 12) hours += 12;
-  if (modifier === "AM" && hours === 12) hours = 0;
-
-  return hours * 60 + minutes;
+function timeToMinutes(t) {
+  let [h,m] = t.split(":").map(Number);
+  return h*60+m;
 }
 
 function getCurrentMinutes() {
-  const now = new Date();
-  return now.getHours() * 60 + now.getMinutes();
+  let d = new Date();
+  return d.getHours()*60 + d.getMinutes();
+}
+
+function handleClick() {
+  const success = findBuses();
+  if (success) showAd(); // show ad only if valid
 }
 
 function findBuses() {
+
   const from = document.getElementById("from").value;
   const to = document.getElementById("to").value;
   const fullDay = document.getElementById("fullDay").checked;
@@ -240,67 +171,65 @@ function findBuses() {
   results.innerHTML = "";
 
   if (!from || !to) {
-    results.innerHTML = `<div class="result">Please select both locations.</div>`;
-    return;
+    results.innerHTML = "Select both stops";
+    return false;
   }
 
   if (from === to) {
-    results.innerHTML = `<div class="result">Current location and destination cannot be the same.</div>`;
-    return;
+    results.innerHTML = "Same stops not allowed";
+    return false;
   }
 
-  const validRoutes = Object.entries(data.routes).filter(([routeId, route]) =>
+  let routes = Object.entries(data.routes).filter(([id, route]) =>
     route.stopIds.includes(from) &&
     route.stopIds.includes(to) &&
     route.stopIds.indexOf(from) < route.stopIds.indexOf(to)
   );
 
-  if (validRoutes.length === 0) {
-    results.innerHTML = `<div class="result">No route found.</div>`;
-    return;
+  if (routes.length === 0) {
+    results.innerHTML = "No route found";
+    return false;
   }
 
-  const currentMinutes = getCurrentMinutes();
-  let matchedBuses = [];
+  let now = getCurrentMinutes();
+  let buses = [];
 
-  validRoutes.forEach(([routeId, route]) => {
-    const busesOnRoute = Object.values(data.buses).filter(bus => bus.routeId === routeId);
-
-    busesOnRoute.forEach(bus => {
-      const busMinutes = timeToMinutes(bus.departureTime);
-
-      if (fullDay || busMinutes >= currentMinutes) {
-        matchedBuses.push({
-          departureTime: bus.departureTime,
-          operator: bus.operator,
-          routeName: route.name,
-          timeValue: busMinutes
-        });
+  routes.forEach(([routeId, route]) => {
+    Object.values(data.buses).forEach(bus => {
+      if (bus.routeId === routeId) {
+        let t = timeToMinutes(bus.departureTime);
+        if (fullDay || t >= now) {
+          buses.push({
+            time: bus.departureTime,
+            op: bus.operator,
+            route: route.name,
+            value: t
+          });
+        }
       }
     });
   });
 
-  matchedBuses.sort((a, b) => a.timeValue - b.timeValue);
+  buses.sort((a,b)=>a.value-b.value);
 
-  if (matchedBuses.length === 0) {
-    results.innerHTML = fullDay
-      ? `<div class="result">No buses found for this route.</div>`
-      : `<div class="result">No more buses available today. Tick "Show full day schedule" to see all buses.</div>`;
-    return;
+  if (buses.length === 0) {
+    results.innerHTML = "No buses left today";
+    return false;
   }
 
-  matchedBuses.forEach(bus => {
+  buses.forEach(b=>{
     results.innerHTML += `
-      <div class="result">
-        <img src="bus-stop (1).png" alt="Bus icon">
-        <div>
-          <strong>${bus.departureTime}</strong><br>
-          ${bus.operator} • ${bus.routeName}
-        </div>
+    <div class="result">
+      <div>
+        <strong>${b.time}</strong><br>
+        ${b.op} • ${b.route}
       </div>
-    `;
+    </div>`;
   });
+
+  return true;
 }
 </script>
+
 </body>
 </html>
