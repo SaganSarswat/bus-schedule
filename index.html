@@ -13,6 +13,13 @@
 
   gtag('config', 'G-M0885C07SW');
 </script>
+<script>
+  function showAd() {
+    if (window.ReactNativeWebView) {
+      window.ReactNativeWebView.postMessage("showAd");
+    }
+}
+</script>
 <style>
   body {
     margin: 35px 0px 30px 0px;
@@ -172,12 +179,17 @@ aru
     </div>
   </div>
 
-  <button class="btn" onclick="findBuses()">🔍 Find Departures</button>
+  <button class="btn" onclick="handleClick()">🔍 Find Departures</button>
 </div>
 
 <!-- Results -->
 <div class="results" id="results"></div>
-
+<script>
+function handleClick() {
+  findBuses()();   // your existing function
+  showAd();       // trigger ad
+}
+</script>
 <script>
 let data = {};
 
