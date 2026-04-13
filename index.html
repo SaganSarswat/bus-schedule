@@ -5,7 +5,7 @@
 <title>Laari – Route Planner</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Analytics -->
+<!-- Google tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M0885C07SW"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -25,7 +25,7 @@ function showAd() {
 <style>
 body {
   margin: 35px 0px 30px 0px;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: #eef6fb;
 }
 
@@ -58,11 +58,14 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-label {
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.subtitle {
+  color: #6b8ca6;
   font-size: 14px;
-  font-weight: bold;
-  margin-top: 12px;
-  display: block;
 }
 
 select {
@@ -81,8 +84,6 @@ select {
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 16px;
-  font-weight: bold;
 }
 
 .result {
@@ -106,19 +107,26 @@ select {
 </div>
 
 <div class="card">
+  <div class="card-header">
+    <span>🔀</span>
+    <h2>Route Planner</h2>
+  </div>
 
-<label>From</label>
-<select id="from"></select>
+  <div class="subtitle">
+    Find bus timings for your journey.
+  </div>
 
-<label>To</label>
-<select id="to"></select>
+  <label>Current Location</label>
+  <select id="from"></select>
 
-<label>
-<input type="checkbox" id="fullDay"> Show full day
-</label>
+  <label>Destination</label>
+  <select id="to"></select>
 
-<button class="btn" onclick="handleClick()">Find Bus</button>
+  <div>
+    <input type="checkbox" id="fullDay"> Show full day schedule
+  </div>
 
+  <button class="btn" onclick="handleClick()">🔍 Find Departures</button>
 </div>
 
 <div id="results"></div>
@@ -162,7 +170,6 @@ function handleClick() {
 }
 
 function findBuses() {
-
   const from = document.getElementById("from").value;
   const to = document.getElementById("to").value;
   const fullDay = document.getElementById("fullDay").checked;
@@ -171,30 +178,30 @@ function findBuses() {
   results.innerHTML = "";
 
   if (!from || !to) {
-    results.innerHTML = "Select both stops";
+    results.innerHTML = `<div class="result">Please select both locations.</div>`;
     return false;
   }
 
   if (from === to) {
-    results.innerHTML = "Same stops not allowed";
+    results.innerHTML = `<div class="result">Same location not allowed.</div>`;
     return false;
   }
 
-  let routes = Object.entries(data.routes).filter(([id, route]) =>
+  const validRoutes = Object.entries(data.routes).filter(([id, route]) =>
     route.stopIds.includes(from) &&
     route.stopIds.includes(to) &&
     route.stopIds.indexOf(from) < route.stopIds.indexOf(to)
   );
 
-  if (routes.length === 0) {
-    results.innerHTML = "No route found";
+  if (validRoutes.length === 0) {
+    results.innerHTML = `<div class="result">No route found.</div>`;
     return false;
   }
 
-  let now = getCurrentMinutes();
+  const now = getCurrentMinutes();
   let buses = [];
 
-  routes.forEach(([routeId, route]) => {
+  validRoutes.forEach(([routeId, route]) => {
     Object.values(data.buses).forEach(bus => {
       if (bus.routeId === routeId) {
         let t = timeToMinutes(bus.departureTime);
@@ -213,13 +220,14 @@ function findBuses() {
   buses.sort((a,b)=>a.value-b.value);
 
   if (buses.length === 0) {
-    results.innerHTML = "No buses left today";
+    results.innerHTML = `<div class="result">No buses available.</div>`;
     return false;
   }
 
   buses.forEach(b=>{
     results.innerHTML += `
     <div class="result">
+      <img src="bus-stop (1).png">
       <div>
         <strong>${b.time}</strong><br>
         ${b.op} • ${b.route}
