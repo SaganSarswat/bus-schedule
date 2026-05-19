@@ -128,6 +128,7 @@
     "bt-27": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "17:55" },
     "bt-28": { "routeId": "BB-BTI", "operator": "Dashmesh", "departureTime": "18:10" },
     "bt-29": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "18:35" },
-"bt-30": { "routeId": "BB-BTI", "operator": "New Malwa", "departureTime": "9:00" }
+"bt-30": { "routeId": "BB-BTI", "operator": "New Malwa", "departureTime": "9:00" },
+"bt-31": { "routeId": "BB-BTI", "operator": "PRTC", "departureTime": "15:15" }
   }
 }
