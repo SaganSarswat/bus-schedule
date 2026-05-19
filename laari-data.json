@@ -66,7 +66,25 @@
         "bhuchokhurd",
         "bathinda"
       ]
-    }
+    },
+    "BTI-BB": {
+  "name": "Bathinda – Bhagta Bhai",
+  "stopIds": [
+    "bathinda",
+    "bhuchokhurd",
+    "bhuchomandi",
+    "bhuchokalan",
+    "poohla",
+    "nathana",
+    "nathpura",
+    "bajjjoana",
+    "kalsukha",
+    "kalmalka",
+    "dialpura",
+    "kothaguru",
+    "bhagta"
+  ]
+}
   },
 
   "buses": {
@@ -132,5 +150,81 @@
 "bt-31": { "routeId": "BB-BTI", "operator": "Jalal", "departureTime": "15:15" },
 "bt-32": { "routeId": "BB-BTI", "operator": "Jalal", "departureTime": "11:40" },
 "bt-33": { "routeId": "BB-BTI", "operator": "GNT", "departureTime": "9:30" }
-  }
+  },
+  "bti-1": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "08:15"
+    },
+    "bti-2": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "08:25"
+    },
+    "bti-3": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "09:18"
+    },
+    "bti-4": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "10:17"
+    },
+    "bti-5": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "11:35"
+    },
+    "bti-6": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "12:10"
+    },
+    "bti-7": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "13:08"
+    },
+    "bti-8": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "13:30"
+    },
+    "bti-9": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "14:15"
+    },
+    "bti-10": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "15:25"
+    },
+    "bti-11": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "15:40"
+    },
+    "bti-12": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "16:10"
+    },
+    "bti-13": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "17:05"
+    },
+    "bti-14": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "17:18"
+    },
+    "bti-15": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "18:18"
+    }
+
 }
