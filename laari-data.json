@@ -149,8 +149,7 @@
 "bt-30": { "routeId": "BB-BTI", "operator": "New Malwa", "departureTime": "9:00" },
 "bt-31": { "routeId": "BB-BTI", "operator": "Jalal", "departureTime": "15:15" },
 "bt-32": { "routeId": "BB-BTI", "operator": "Jalal", "departureTime": "11:40" },
-"bt-33": { "routeId": "BB-BTI", "operator": "GNT", "departureTime": "9:30" }
-  },
+"bt-33": { "routeId": "BB-BTI", "operator": "GNT", "departureTime": "9:30" },
   "bti-1": {
       "routeId": "BTI-BB",
       "operator": "PRTC",
@@ -226,5 +225,5 @@
       "operator": "PRTC",
       "departureTime": "18:18"
     }
-
+  },
 }
