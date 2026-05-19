@@ -224,6 +224,20 @@
       "routeId": "BTI-BB",
       "operator": "PRTC",
       "departureTime": "18:18"
+  },
+  "bti-16": {
+      "routeId": "BTI-BB",
+      "operator": "New Malwa",
+      "departureTime": "17:50"
+    },
+  "bti-17": {
+      "routeId": "BTI-BB",
+      "operator": "Jalal",
+      "departureTime": "18:50"
+    },
+   "bti-15": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "19:30"
     }
-  }
 }
