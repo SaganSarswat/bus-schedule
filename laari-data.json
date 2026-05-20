@@ -239,6 +239,16 @@
       "routeId": "BTI-BB",
       "operator": "PRTC",
       "departureTime": "19:30"
-    }
+    },
+    "bti-16": {
+      "routeId": "BTI-BB",
+      "operator": "PRTC",
+      "departureTime": "7:20"
+    },
+    "bti-17": {
+      "routeId": "BTI-BB",
+      "operator": "MHT",
+      "departureTime": "6:45"
+    },
  }
 }
