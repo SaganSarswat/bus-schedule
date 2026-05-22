@@ -259,6 +259,11 @@
       "routeId": "BTI-BB",
       "operator": "GNT",
       "departureTime": "7:50"
+    },
+    "bti-23": {
+      "routeId": "BTI-BB",
+      "operator": "New Malwa",
+      "departureTime": "15:55"
     }
  }
 }
