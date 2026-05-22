@@ -235,25 +235,30 @@
       "operator": "Jalal",
       "departureTime": "18:50"
     },
-   "bti-15": {
+   "bti-18": {
       "routeId": "BTI-BB",
       "operator": "PRTC",
       "departureTime": "19:30"
     },
-    "bti-16": {
+    "bti-19": {
       "routeId": "BTI-BB",
       "operator": "PRTC",
       "departureTime": "7:20"
     },
-    "bti-17": {
+    "bti-20": {
       "routeId": "BTI-BB",
       "operator": "MHT",
       "departureTime": "6:45"
     },
-    "bti-18": {
+    "bti-21": {
       "routeId": "BTI-BB",
       "operator": "GNT",
       "departureTime": "15:00"
+    },
+    "bti-22": {
+      "routeId": "BTI-BB",
+      "operator": "GNT",
+      "departureTime": "7:50"
     }
  }
 }
