@@ -249,6 +249,11 @@
       "routeId": "BTI-BB",
       "operator": "MHT",
       "departureTime": "6:45"
+    },
+    "bti-18": {
+      "routeId": "BTI-BB",
+      "operator": "GNT",
+      "departureTime": "3:00"
     }
  }
 }
