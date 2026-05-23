@@ -113,7 +113,7 @@
     "rb-8": { "routeId": "RP-BB", "operator": "Maan", "departureTime": "13:30" },
     "rb-9": { "routeId": "RP-BB", "operator": "Maan", "departureTime": "14:30" },
     "rb-10": { "routeId": "RP-BB", "operator": "Saink", "departureTime": "15:15" },
-    "rb-11": { "routeId": "RP-BB", "operator": "Saink", "departureTime": "16:30" },
+    "rb-11": { "routeId": "RP-BB", "operator": "Saink", "departureTime": "16:20" },
     "rb-12": { "routeId": "RP-BB", "operator": "Maan", "departureTime": "17:30" },
     "rb-13": { "routeId": "RP-BB", "operator": "Maan", "departureTime": "18:30" },
 
