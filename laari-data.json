@@ -269,6 +269,11 @@
       "routeId": "BTI-BB",
       "operator": "New Malwa",
       "departureTime": "11:00"
+    },
+    "bti-25": {
+      "routeId": "BTI-BB",
+      "operator": "Jalal",
+      "departureTime": "16:50"
     }
  }
 }
